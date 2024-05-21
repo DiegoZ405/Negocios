@@ -1,0 +1,30 @@
+[
+    {
+      "nombre": "Control inalámbrico Xbox - Electric Volt - Standard Edition",
+      "tipo": "Edicion",
+      "imagen": "imagenes/producto1.jpg",
+      "precio": "999",
+      "descripcion": "Diseñado para ofrecer mayor comodidad y control con el menor esfuerzo. Mantén siempre tu objetivo con el agarre texturizado en los gatillos, en los botones superiores y en la carcasa trasera."
+    },
+    {
+      "nombre": "Control alámbrico PowerA Advantage",
+      "tipo": "Alambrico",
+      "imagen": "imagenes/producto2.jpg",
+      "precio": "828",
+      "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño inspirado en grafitis."
+    },
+    {
+      "nombre": "PDP Afterglow Wave Wired LED",
+      "tipo": "Alambrico",
+      "imagen": "imagenes/producto3.jpg",
+      "precio": "1099",
+      "descripcion": "compatible con Xbox One y Windows 10/11."
+    },
+    {
+      "nombre": "Microsoft Xbox Series X|S Wireless Special Edition Controller",
+      "tipo": "Edicion",
+      "imagen": "imagenes/producto4.jpg",
+      "precio": "1508.23",
+      "descripcion": "Con agarre de disparo grabado y empuñadura de goma en forma de diamante te ayudan a resistir hasta las batallas más fuertes."
+    }
+]
