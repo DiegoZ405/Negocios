@@ -61,6 +61,33 @@
             height: 250px;
             object-fit: cover;
         }
+        .image-container {
+            text-align: center; /* Center align the image if needed */
+            margin-bottom: 20px; /* Space below the image container */
+        }
+        
+        .image-container img {
+            width: 90%; /* Make the image take the full width of the container */
+            height: 550px; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the container keeping aspect ratio */
+            border: 2px solid #ccc; /* Add a border around the image */
+            border-radius: 10px; /* Rounded corners */
+        }
+        footer {
+            background-color: #f8f9fa; /* Fondo claro para contrastar con el texto negro */
+            color: #000; /* Texto en color negro */
+        }
+
+        footer a {
+            color: #000; /* Enlaces en color negro */
+        }
+
+        footer a:hover {
+            color: #555; /* Color al pasar el mouse */
+        }
+        .footer-container{
+         margin-left: 400px; 
+     }
 
         @media screen and (max-width: 500px) {
             .abrir-menu,
@@ -115,6 +142,8 @@
             #products-container.visible-menu {
                 margin-top: 200px; /* Ajusta este valor según sea necesario */
             }
+            
+            
         
         
         }

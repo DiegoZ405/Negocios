@@ -11,7 +11,7 @@
       "tipo": "Alambrico",
       "imagen": "imagenes/producto2.jpg",
       "precio": "828",
-      "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño inspirado en grafitis."
+      "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño minimalista."
     },
     {
       "nombre": "PDP Afterglow Wave Wired LED",
@@ -26,5 +26,19 @@
       "imagen": "imagenes/producto4.jpg",
       "precio": "1508.23",
       "descripcion": "Con agarre de disparo grabado y empuñadura de goma en forma de diamante te ayudan a resistir hasta las batallas más fuertes."
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox - Elite Series 2 - Blanco",
+      "tipo": "Inalambrico",
+      "imagen": "imagenes/producto5.jpg",
+      "precio": "2190",
+      "descripcion": "Mejora tu puntería con las nuevas palancas de control de tensión ajustables, dispara aún más rápido con bloqueo de gatillos de alta sensibilidad más cortos"
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox - Gold Shadow - Edición Especial Edition",
+      "tipo": "Edicion",
+      "imagen": "imagenes/producto6.jpg",
+      "precio": "1699",
+      "descripcion": "No pierdas el objetivo y lúcete con el pad direccional híbrido en dorado metálico. Controla toda la acción con el agarre texturizado"
     }
 ]
