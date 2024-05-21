@@ -1,94 +1,120 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
-}
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px;    
+            width: 95%;        
+            background-color: white;
+            height: 50px;
+        }
+        body{
+            background-color: #f8f8f8; 
+            height: 100%;
+                }
 
-.logo {
-    max-width: 5rem;
-    height: 50px;
-}
+        .logo {
+            max-width: 5rem;
+            height: 50px;
+        }
 
-.nav-list {
-    list-style-type: none;
-    display: flex;
-    gap: 1rem;
-}
+        .nav-list {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+        }
 
-.nav-list li a {
-    text-decoration: none;
-    color: #1c1c1c;
-    margin-right: 10px;
-}
+        .nav-list li a {
+            text-decoration: none;
+            color: #1c1c1c;
+            margin-right: 10px;
+        }
 
-.abrir-menu,
-.cerrar-menu {
-    display: none;
-}
+        .abrir-menu,
+        .cerrar-menu {
+            display: none;
+        }
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 570px;
+            width: 340px;
+            margin-left: 20px;
+        }
+        #products-container{
+            width: 100%;
+         }
+         .container{
+            background-color: white;
+            margin-top: 50px;
+         }
+         .card .card-img-top {
+            width: 320px;
+            height: 250px;
+            object-fit: cover;
+        }
 
-@media screen and (max-width: 550px) {
-    .abrir-menu,
-    .cerrar-menu {
-        display: block;
-        border: 0;
-        font-size: 1.25rem;
-        background-color: transparent;
-        cursor: pointer;
-    }
+        @media screen and (max-width: 500px) {
+            .abrir-menu,
+            .cerrar-menu {
+                display: block;
+                border: 0;
+                font-size: 1.25rem;
+                background-color: transparent;
+                cursor: pointer;
+            }
 
-    .abrir-menu {
-        color: #1c1c1c;
-    }
+            .abrir-menu {
+                color: #1c1c1c;
+            }
 
-    .cerrar-menu {
-        color: #ececec;
-    }
+            .cerrar-menu {
+                color: #ececec;
+            }
 
-    .nav {
-        opacity: 0;
-        visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        gap: 1rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #1c1c1c;
-        padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-    }
+            .nav {
+                opacity: 0;
+                visibility: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                gap: 1rem;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #1c1c1c;
+                padding: 2rem;
+                box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+                height: 310px;
+            }
 
-    .nav.visible {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-list {
-        flex-direction: column;
-        align-items: end;
-    }
+            .nav.visible {
+                opacity: 1;
+                visibility: visible;
+            }
 
-    .nav-list li a {
-        color: #ecececec;
-    }  
-    
-    .card {
-        margin-bottom: 20px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-        background-color: #ddd;
-    }
- 
-}
+            .nav-list {
+                flex-direction: column;
+                align-items: end;
+            }
+
+            .nav-list li a {
+                color: #ecececec;
+            }
+
+            /* Añade un margen superior a los productos cuando el menú está abierto */
+            #products-container.visible-menu {
+                margin-top: 200px; /* Ajusta este valor según sea necesario */
+            }
+        
+        
+        }
