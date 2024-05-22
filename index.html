@@ -20,7 +20,7 @@
                     <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
                     <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
                     <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
-                    <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="producto.html"><strong>ADMIN</strong></a></li>
                     <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
                 </ul>
             </nav>
@@ -191,6 +191,36 @@ selectOption.addEventListener('change', () => {
             window.location.href = 'login.html'; 
         });
     });
+</script>
+
+<div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="cookieModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cookieModalLabel">Aviso Legal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6><strong>Política de Cookies:</strong></h6>
+                <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario y para fines estadísticos. Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Son ampliamente utilizadas para que los sitios web funcionen o funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio. Al utilizar este sitio web, aceptas el uso de cookies de acuerdo con nuestra.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script>
+    // Función para mostrar el modal al cargar la página
+    window.onload = function() {
+        $('#cookieModal').modal('show');
+    };
 </script>
   
 

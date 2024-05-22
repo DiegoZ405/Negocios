@@ -30,6 +30,14 @@
         <div id="product-details" class="mt-5">
             <!-- Los detalles del producto se cargarán aquí -->
         </div>
+        <div class="mt-5">
+            <h3>Reseña del Producto</h3>
+            <textarea id="review" class="form-control" rows="4"></textarea>
+            <button id="submit-review" class="btn btn-primary mt-2">Enviar Reseña</button>
+            <div id="reviews" class="mt-3">
+                <!-- Las reseñas del producto se mostrarán aquí -->
+            </div>
+        </div>
     </div>
 
     <script>
@@ -84,19 +92,30 @@
             // Redirigir a la página del carrito
             window.location.href = 'carro.html';
         }
-
-        // Función para añadir el producto a la lista de deseos
         function addToWishlist(product) {
-            let wishlist = JSON.parse(sessionStorage.getItem('wishlist')) || [];
-            wishlist.push(product);
-            sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
-            alert('Producto añadido a la lista de deseos');
-            window.location.href = 'deseos.html';
+    let wishlist = JSON.parse(sessionStorage.getItem('wishlist')) || [];
+    wishlist.push(product);
+    sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
+    alert('Producto añadido a la lista de deseos');
+    // Redirigir a la página de deseos
+    window.location.href = 'deseos.html';
+}
 
-        }
+// Carga los detalles del producto al cargar la página
+loadProductDetails(productName);
 
-        // Carga los detalles del producto al cargar la página
-        loadProductDetails(productName);
-    </script>
+// Función para enviar una reseña del producto
+document.getElementById('submit-review').addEventListener('click', function() {
+    const reviewText = document.getElementById('review').value;
+    if (reviewText.trim() !== '') {
+        const reviewContainer = document.getElementById('reviews');
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('alert', 'alert-info');
+        reviewElement.textContent = reviewText;
+        reviewContainer.appendChild(reviewElement);
+        document.getElementById('review').value = '';
+    }
+});
+</script>
 </body>
 </html>

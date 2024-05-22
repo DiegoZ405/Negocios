@@ -9,7 +9,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 98%;        
+            width: 99%;        
             background-color: white;
             height: 50px;
             margin-left: 9px;
@@ -93,7 +93,9 @@
         }
         
         nav.secondary-navbar {
-            background-color: white; 
+            margin-left: 9px;
+            width: 99%;   
+            background-color:white; 
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
