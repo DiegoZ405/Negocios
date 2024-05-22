@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalles del Producto</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="estilos/verprod.css">
@@ -17,10 +17,10 @@
             <nav class="nav" id="nav">
                 <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
                 <ul class="nav-list">
-                    <li><a href="index.html"><strong>INICIO</strong></a></li>
-                    <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
-                    <li><a href="carrito.html"><strong>🛒CARRITO</strong></a></li>
-                    <li><a href="#"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="producto.html"><strong>CARRITO</strong></a></li>
+                    <li><a href="carrito.html"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="#"><strong>WW</strong></a></li>
                     <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
                 </ul>
             </nav>
@@ -49,13 +49,18 @@
                         const productDetails = document.createElement('div');
                         productDetails.innerHTML = `
                             <h1>${product.nombre}</h1>
-                            <img src="${product.imagen}" alt="${product.nombre}">
+                            <img src="${product.imagen}" alt="${product.nombre}" class="img-fluid">
                             <p><strong>Descripción:</strong> ${product.descripcion}</p>
                             <p><strong>Precio:</strong> $${product.precio}</p>
-                            <!-- Puedes agregar más detalles aquí según sea necesario -->
+                            <button class="btn btn-primary" id="add-to-cart">Añadir al carrito</button>
                         `;
                         // Agrega los detalles del producto al contenedor
                         document.getElementById('product-details').appendChild(productDetails);
+
+                        // Añadir evento para el botón de añadir al carrito
+                        document.getElementById('add-to-cart').addEventListener('click', () => {
+                            addToCart(product);
+                        });
                     } else {
                         // Si el producto no se encuentra, muestra un mensaje de error
                         document.getElementById('product-details').innerHTML = '<p>Producto no encontrado</p>';
@@ -64,12 +69,18 @@
                 .catch(error => console.error('Error al cargar los detalles del producto:', error));
         }
 
+        // Función para añadir el producto al carrito
+        function addToCart(product) {
+            let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            cart.push(product);
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            alert('Producto añadido al carrito');
+            // Redirigir a la página del carrito
+            window.location.href = 'carro.html';
+        }
+
         // Carga los detalles del producto al cargar la página
         loadProductDetails(productName);
     </script>
-    
-  
-
-
 </body>
 </html>
