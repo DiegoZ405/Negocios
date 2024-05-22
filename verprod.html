@@ -18,8 +18,8 @@
                 <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
                 <ul class="nav-list">
                     <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
-                    <li><a href="producto.html"><strong>CARRITO</strong></a></li>
-                    <li><a href="carrito.html"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
+                    <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
                     <li><a href="#"><strong>WW</strong></a></li>
                     <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
                 </ul>
@@ -53,6 +53,7 @@
                             <p><strong>Descripción:</strong> ${product.descripcion}</p>
                             <p><strong>Precio:</strong> $${product.precio}</p>
                             <button class="btn btn-primary" id="add-to-cart">Añadir al carrito</button>
+                            <button class="btn btn-secondary" id="add-to-wishlist">Añadir a la lista de deseos</button>
                         `;
                         // Agrega los detalles del producto al contenedor
                         document.getElementById('product-details').appendChild(productDetails);
@@ -60,6 +61,11 @@
                         // Añadir evento para el botón de añadir al carrito
                         document.getElementById('add-to-cart').addEventListener('click', () => {
                             addToCart(product);
+                        });
+
+                        // Añadir evento para el botón de añadir a la lista de deseos
+                        document.getElementById('add-to-wishlist').addEventListener('click', () => {
+                            addToWishlist(product);
                         });
                     } else {
                         // Si el producto no se encuentra, muestra un mensaje de error
@@ -77,6 +83,16 @@
             alert('Producto añadido al carrito');
             // Redirigir a la página del carrito
             window.location.href = 'carro.html';
+        }
+
+        // Función para añadir el producto a la lista de deseos
+        function addToWishlist(product) {
+            let wishlist = JSON.parse(sessionStorage.getItem('wishlist')) || [];
+            wishlist.push(product);
+            sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Producto añadido a la lista de deseos');
+            window.location.href = 'deseos.html';
+
         }
 
         // Carga los detalles del producto al cargar la página

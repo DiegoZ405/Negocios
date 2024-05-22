@@ -19,7 +19,7 @@
                 <ul class="nav-list">
                     <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
                     <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
-                    <li><a href=""><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
                     <li><a href="#"><strong>WW</strong></a></li>
                     <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
                 </ul>
@@ -60,6 +60,7 @@
                             <p class="card-text"><strong>Descripción:</strong> ${item.descripcion}</p>
                             <p class="card-text"><strong>Precio:</strong> $${item.precio}</p>
                             <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid">
+                            <button class="btn btn-danger btn-sm mt-2" onclick="removeFromCart('${item.nombre}')">Eliminar</button>
                         </div>
                     `;
 
@@ -100,6 +101,21 @@
                     });
                 }
             }).render('#paypal-button-container');
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeFromCart(productName) {
+            // Obtener los productos del carrito de la memoria de sesión
+            let cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
+
+            // Filtrar los productos para excluir el producto a eliminar
+            cartItems = cartItems.filter(item => item.nombre !== productName);
+
+            // Actualizar el carrito en la memoria de sesión
+            sessionStorage.setItem('cart', JSON.stringify(cartItems));
+
+            // Volver a cargar los productos del carrito para actualizar la vista
+            loadCartItems();
         }
 
         // Cargar los productos del carrito al cargar la página
