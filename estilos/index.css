@@ -75,7 +75,7 @@
             border-radius: 10px; /* Rounded corners */
         }
         .container-footer {
-            background-color: #f8f9fa; /* Fondo claro para contrastar con el texto negro */
+            background-color: white; /* Fondo claro para contrastar con el texto negro */
             color: #000; /* Texto en color negro */
             text-align: center; /* Centramos el texto */
             padding: 20px 0; /* Espaciado arriba y abajo */
@@ -92,21 +92,66 @@
             margin-left: 400px;
         }
         
-        .secondary-navbar {
-            background-color: white; /* Color de fondo */
-            color: black; /* Color del texto */
-            padding: 10px; /* Espaciado interior */
-            width: 98%;
-            height: 70px;
-            margin-bottom: 20px;
-            margin-left: 9px;
+        nav.secondary-navbar {
+            background-color: white; 
+            padding: 10px 20px;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .secondary-navbar .nav-list {
-            list-style-type: none; /* Quitar viñetas de la lista */
-            display: flex; /* Mostrar elementos en línea */
+            list-style: none;
+            display: flex;
+            align-items: center;
         }
+        
+        .secondary-navbar .nav-list li {
+            margin: 0 15px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .secondary-navbar .nav-list li a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s;
+        }
+        
+        .secondary-navbar .nav-list li a:hover {
+            color: black;
+        }
+        
+        .secondary-navbar .nav-list .usuario {
+            position: relative;
+        }
+        
+        .secondary-navbar .nav-list .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white; 
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            list-style: none; /* Remove default list style */
+            padding: 0; /* Remove default padding */
+        }
+        
+        .secondary-navbar .nav-list .dropdown li {
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+        
+        .secondary-navbar .nav-list .dropdown li:hover {
+            background-color: #f8f8f8; 
+        }
+        
+        .secondary-navbar .nav-list .usuario:hover .dropdown {
+            display: block;
+        }
+        
         .search-form {
             display: flex;
             align-items: center;
@@ -131,6 +176,7 @@
             transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
             height: 40px;
         }
+        
 
         @media screen and (max-width: 457px) {
             .abrir-menu,

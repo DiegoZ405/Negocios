@@ -17,9 +17,9 @@
             <nav class="nav" id="nav">
                 <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
                 <ul class="nav-list">
-                    <li><a href="#"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
                     <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
-                    <li><a href="#"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
                     <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
                     <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
                 </ul>
@@ -27,15 +27,21 @@
         </header>
         <nav class="secondary-navbar">
             <ul class="nav-list">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li class="usuario">
+                    Usuario
+                    <ul class="dropdown">
+                        <li id="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></li>
+                        <li><a href="orden.html">Orden</a></li>
+                        <li><a href="orden.html">Perfil</a></li>
+                        <li id="cerrar-sesion" style="display: none;"><a href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
                 <form class="search-form" id="search-form">
                     <input type="text" id="search-input" placeholder="Buscar productos...">
                     <button type="submit">Buscar</button>
                 </form>
             </ul>
         </nav>
-    </div>
 
     <div class="image-container">
         <img src="Imagenes/xbox.jpg" class="img-fluid" alt="Full Width Image">
@@ -154,6 +160,39 @@ selectOption.addEventListener('change', () => {
     }
 });
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const iniciarSesionLink = document.getElementById('iniciar-sesion');
+        const cerrarSesionLink = document.getElementById('cerrar-sesion');
+
+        // Función para mostrar u ocultar el enlace de iniciar sesión
+        const actualizarVisibilidadEnlace = () => {
+            const usuarioIniciadoSesion = sessionStorage.getItem('usuarioIniciadoSesion');
+            if (usuarioIniciadoSesion) {
+                iniciarSesionLink.style.display = 'none';
+                cerrarSesionLink.style.display = 'block';
+            } else {
+                iniciarSesionLink.style.display = 'block';
+                cerrarSesionLink.style.display = 'none';
+            }
+        };
+
+        // Llamada inicial a la función para establecer la visibilidad correcta
+        actualizarVisibilidadEnlace();
+
+        // Evento para cerrar sesión
+        cerrarSesionLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            sessionStorage.removeItem('usuarioIniciadoSesion');
+            // Actualizar la visibilidad del enlace de iniciar sesión después de cerrar sesión
+            actualizarVisibilidadEnlace();
+            // Redirigir a la página de inicio de sesión al cerrar sesión
+            window.location.href = 'login.html'; 
+        });
+    });
+</script>
+  
 
     <footer class="mt-5">
         <div class="container container-footer">

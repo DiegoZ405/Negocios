@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="estilos/login.css">
+</head>
+<body>
+    <div class="container-menu">
+        <header>
+            <img class="logo" src="Imagenes/xbox.png" alt="Logo">
+            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+            <nav class="nav" id="nav">
+                <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+                <ul class="nav-list">
+                    <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
+                    <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
+                </ul>
+            </nav>
+        </header>
+<body>
+    <div class="login-container">
+        <!-- Formulario de Inicio de Sesión -->
+        <div id="login-form">
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico:</label>
+                    <input type="email" id="login-email" name="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+                </div>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes una cuenta? <a href="#" id="switch-to-register">Regístrate aquí</a>.</p>
+        </div>
+        
+        <!-- Formulario de Registro -->
+        <div id="registro-form" style="display: none;">
+            <h2>Registrarse</h2>
+            <form id="registroForm">
+                <div class="form-group">
+                    <label for="registro-email">Correo Electrónico:</label>
+                    <input type="email" id="registro-email" name="registro-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registro-password">Contraseña:</label>
+                    <input type="password" id="registro-password" name="registro-password" required>
+                </div>
+                <button type="submit">Registrarse</button>
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="#" id="switch-to-login">Inicia sesión aquí</a>.</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const switchToRegister = document.getElementById('switch-to-register');
+            const switchToLogin = document.getElementById('switch-to-login');
+            const loginForm = document.getElementById('login-form');
+            const registroForm = document.getElementById('registro-form');
+
+            switchToRegister.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginForm.style.display = 'none';
+                registroForm.style.display = 'block';
+            });
+
+            switchToLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                registroForm.style.display = 'none';
+                loginForm.style.display = 'block';
+            });
+
+            const registroFormElement = document.getElementById('registroForm');
+            registroFormElement.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('registro-email').value;
+                const password = document.getElementById('registro-password').value;
+                const existingUser = sessionStorage.getItem(email);
+                if (existingUser) {
+                    alert('Ya existe una cuenta con este correo electrónico');
+                } else {
+                    sessionStorage.setItem(email, password);
+                    alert('Registro exitoso');
+                    window.location.href = 'login.html';
+                }
+            });
+
+            const loginFormElement = document.getElementById('loginForm');
+            loginFormElement.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                const storedPassword = sessionStorage.getItem(email);
+                if (storedPassword === password) {
+                    sessionStorage.setItem('usuarioIniciadoSesion', email);
+                    alert('Inicio de sesión exitoso');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Credenciales inválidas');
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
