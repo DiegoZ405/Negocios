@@ -40,5 +40,27 @@
       "imagen": "imagenes/producto6.jpg",
       "precio": "1699",
       "descripcion": "No pierdas el objetivo y lúcete con el pad direccional híbrido en dorado metálico. Controla toda la acción con el agarre texturizado"
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox– Pulse Red",
+      "tipo": "Inalambrico",
+      "imagen": "imagenes/producto7.jpg",
+      "precio": "789",
+      "descripcion": "Vive la experiencia del diseño modernizado del Control Inalámbrico de Xbox, Pulse Red, con superficies esculpidas y una geometría refinada para una mayor comodidad"
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox - Lunar Shift",
+      "tipo": "Inalambrico",
+      "imagen": "imagenes/producto8.jpg",
+      "precio": "2124.99",
+      "descripcion": "Mantén siempre tu objetivo con el pad direccional híbrido y el agarre texturizado en los gatillos, en los botones superiores y carcasa trasera."
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox - Remix",
+      "tipo": "Alambrico",
+      "imagen": "imagenes/producto9.jpg",
+      "precio": "1686",
+      "descripcion": "Captura y comparte contenido fácilmente, como capturas de pantalla, grabaciones y mucho más con el nuevo botón para Compartir"
     }
+
 ]

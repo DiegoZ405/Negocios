@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="estilos/verprod.css">
+</head>
+<body>
+    <div class="container-menu">
+        <header>
+            <img class="logo" src="Imagenes/xbox.png" alt="Logo">
+            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+            <nav class="nav" id="nav">
+                <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+                <ul class="nav-list">
+                    <li><a href="index.html"><strong>INICIO</strong></a></li>
+                    <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="carrito.html"><strong>🛒CARRITO</strong></a></li>
+                    <li><a href="#"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="container">
+        <div id="product-details" class="mt-5">
+            <!-- Los detalles del producto se cargarán aquí -->
+        </div>
+    </div>
+
+    <script>
+        // Recupera el nombre del producto de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('producto');
+
+        // Función para cargar los detalles del producto
+        function loadProductDetails(productName) {
+            fetch('producto.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Busca el producto por su nombre
+                    const product = data.find(p => p.nombre === productName);
+                    if (product) {
+                        // Crea un elemento para mostrar los detalles del producto
+                        const productDetails = document.createElement('div');
+                        productDetails.innerHTML = `
+                            <h1>${product.nombre}</h1>
+                            <img src="${product.imagen}" alt="${product.nombre}">
+                            <p><strong>Descripción:</strong> ${product.descripcion}</p>
+                            <p><strong>Precio:</strong> $${product.precio}</p>
+                            <!-- Puedes agregar más detalles aquí según sea necesario -->
+                        `;
+                        // Agrega los detalles del producto al contenedor
+                        document.getElementById('product-details').appendChild(productDetails);
+                    } else {
+                        // Si el producto no se encuentra, muestra un mensaje de error
+                        document.getElementById('product-details').innerHTML = '<p>Producto no encontrado</p>';
+                    }
+                })
+                .catch(error => console.error('Error al cargar los detalles del producto:', error));
+        }
+
+        // Carga los detalles del producto al cargar la página
+        loadProductDetails(productName);
+    </script>
+    
+  
+
+
+</body>
+</html>

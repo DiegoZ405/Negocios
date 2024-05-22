@@ -10,7 +10,7 @@
             align-items: center;
             justify-content: space-between;
             margin: 30px;    
-            width: 95%;        
+            width: 98%;        
             background-color: white;
             height: 50px;
         }
@@ -53,7 +53,6 @@
             width: 100%;
          }
          .container{
-            background-color: white;
             margin-top: 50px;
          }
          .card .card-img-top {
@@ -73,23 +72,25 @@
             border: 2px solid #ccc; /* Add a border around the image */
             border-radius: 10px; /* Rounded corners */
         }
-        footer {
+        .container-footer {
             background-color: #f8f9fa; /* Fondo claro para contrastar con el texto negro */
             color: #000; /* Texto en color negro */
+            text-align: center; /* Centramos el texto */
+            padding: 20px 0; /* Espaciado arriba y abajo */
         }
 
-        footer a {
+        .container-footer a {
             color: #000; /* Enlaces en color negro */
         }
 
-        footer a:hover {
+        .container-footer a:hover {
             color: #555; /* Color al pasar el mouse */
         }
-        .footer-container{
-         margin-left: 400px; 
-     }
+        .container-filter{
+            margin-left: 400px;
+        }
 
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 457px) {
             .abrir-menu,
             .cerrar-menu {
                 display: block;
