@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="estilos/orden.css">
+</head>
+<body>
+    <div class="container-menu">
+        <header>
+            <img class="logo" src="Imagenes/xbox.png" alt="Logo">
+            <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+            <nav class="nav" id="nav">
+                <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+                <ul class="nav-list">
+                    <li><a href="index.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="carro.html"><strong>🛒CARRITO</strong></a></li>
+                    <li><a href="deseos.html"><strong>❤️DESEOS</strong></a></li>
+                    <li><a href="producto.html"><strong>PRODUCTOS</strong></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=61557315856153" target="_blank" class="facebook-btn" title="Facebook"><img src="Imagenes/facebook.png" alt="Facebook" title="Icono_Facebook"></a></li>
+                </ul>
+            </nav>
+        </header>
+<body>
+    <h1>Orden de Compra</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>No Orden</th>
+                <th>Nombre</th>
+                <th>Fecha de Orden</th>
+                <th>Imagen</th>
+                <th>Pago</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody id="orderTableBody">
+            <!-- Los datos del JSON se insertarán aquí -->
+        </tbody>
+    </table>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+            fetch('orden.json')
+                .then(response => response.json())
+                .then(data => {
+                    const orders = data;
+                    const tableBody = document.getElementById('orderTableBody');
+
+                    orders.forEach(order => {
+                        const row = document.createElement('tr');
+
+                        // Crear y agregar la celda de la imagen primero
+
+                        // Crear y agregar las demás celdas
+                        const noOrdenCell = document.createElement('td');
+                        noOrdenCell.textContent = order["no orden"];
+                        row.appendChild(noOrdenCell);
+
+                        const nombreCell = document.createElement('td');
+                        nombreCell.textContent = order["nombre"];
+                        row.appendChild(nombreCell);
+
+                        const fechaOrdenCell = document.createElement('td');
+                        fechaOrdenCell.textContent = order["fechaOrden"];
+                        row.appendChild(fechaOrdenCell);
+
+                        const imgCell = document.createElement('td');
+                        const img = document.createElement('img');
+                        img.src = order["imagen"];
+                        img.alt = order["nombre"];
+                        img.style.width = "100px"; // Ajusta el tamaño de la imagen según tus necesidades
+                        imgCell.appendChild(img);
+                        row.appendChild(imgCell);
+
+                        const pagoCell = document.createElement('td');
+                        pagoCell.textContent = order["pago"];
+                        row.appendChild(pagoCell);
+
+                        const precioCell = document.createElement('td');
+                        precioCell.textContent = order["precio"];
+                        row.appendChild(precioCell);
+
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error al cargar el archivo JSON:', error));
+        });
+    </script>
+</body>
+</html>
