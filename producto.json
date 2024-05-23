@@ -11,14 +11,14 @@
       "tipo": "Alambrico",
       "imagen": "imagenes/producto2.jpg",
       "precio": "828",
-      "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño minimalista."
+      "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño minimalista. El control con cable cuenta con motores de doble vibración y botones de juego mapeables avanzados."
     },
     {
       "nombre": "PDP Afterglow Wave Wired LED",
       "tipo": "Alambrico",
       "imagen": "imagenes/producto3.jpg",
       "precio": "1099",
-      "descripcion": "compatible con Xbox One y Windows 10/11."
+      "descripcion": "compatible con Xbox One y Windows 10/11. Transmisor IR integrado: te permite controlar los accesorios compatibles de iluminación RGB Lumectra Zone desde el mando y cuenta con vibraciones"
     },
     {
       "nombre": "Microsoft Xbox Series X|S Wireless Special Edition Controller",
@@ -53,14 +53,14 @@
       "tipo": "Inalambrico",
       "imagen": "imagenes/producto8.jpg",
       "precio": "2124.99",
-      "descripcion": "Mantén siempre tu objetivo con el pad direccional híbrido y el agarre texturizado en los gatillos, en los botones superiores y carcasa trasera."
+      "descripcion": "Mantén siempre tu objetivo con el pad direccional híbrido y el agarre texturizado en los gatillos, en los botones superiores y carcasa trasera. Captura y comparte sin problemas de boton."
     },
     {
       "nombre": "Control Inalámbrico Xbox - Remix",
       "tipo": "Alambrico",
       "imagen": "imagenes/producto9.jpg",
       "precio": "1686",
-      "descripcion": "Captura y comparte contenido fácilmente, como capturas de pantalla, grabaciones y mucho más con el nuevo botón para Compartir"
+      "descripcion": "Captura y comparte contenido fácilmente, como capturas de pantalla, grabaciones y mucho más con el nuevo botón para Compartir. Empareja, juega y alterna rápidamente entre varios dispositivos,"
     }
 
 ]

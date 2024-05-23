@@ -18,7 +18,8 @@ body{
     background-color: #f8f8f8; 
     height: 100%;
         }
-        #product-details img {
+
+#product-details img {
             width: 400px;
             margin: 0 auto; /* Para centrar la imagen horizontalmente */
             margin-bottom: 20px; /* Espacio inferior entre imágenes y otros elementos */
@@ -45,7 +46,6 @@ body{
     height: 210px;
     border-radius: 5px;
 }
-
 
 .abrir-menu,
 .cerrar-menu {

@@ -75,7 +75,7 @@
             border-radius: 10px; /* Rounded corners */
         }
         .container-footer {
-            background-color: white; /* Fondo claro para contrastar con el texto negro */
+            background-color: #f8f8f8; 
             color: #000; /* Texto en color negro */
             text-align: center; /* Centramos el texto */
             padding: 20px 0; /* Espaciado arriba y abajo */

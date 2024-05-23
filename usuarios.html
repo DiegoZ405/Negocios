@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Usuarios</title>
+    <link rel="stylesheet" href="estilos/usuarios.css">
+</head>
+<body>
+    <div class="navbar" id="myNavbar">
+        <a href="usuarios.html">Usuarios</a>
+        <a href="#">Catalogo</a>
+        <a href="index.html">Inicio</a>
+        <!-- Botón de alternancia para dispositivos pequeños -->
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo Electrónico</th>
+                <th>Teléfono</th>
+                <th>Calle</th>
+                <th>Ciudad</th>
+                <th>Acciones</th> <!-- Nuevo encabezado para acciones -->
+            </tr>
+        </thead>
+        <tbody id="tablaUsuarios">
+        </tbody>
+    </table>
+    
+    <!-- Formulario para agregar usuario -->
+    <div id="formularioAgregarUsuario" style="display: none;">
+        <h2>Agregar Nuevo Usuario</h2>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" name="apellido"><br>
+        <label for="correo">Correo Electrónico:</label><br>
+        <input type="email" id="correo" name="correo"><br>
+        <label for="telefono">Teléfono:</label><br>
+        <input type="text" id="telefono" name="telefono"><br>
+        <label for="calle">Calle:</label><br>
+        <input type="text" id="calle" name="calle"><br>
+        <label for="ciudad">Ciudad:</label><br>
+        <input type="text" id="ciudad" name="ciudad"><br><br>
+        <button onclick="agregarUsuario()">Agregar</button>
+        <button onclick="ocultarFormulario()">Cancelar</button>
+    </div>
+
+    <button id="botonAgregarUsuario" onclick="mostrarFormulario()">Agregar Usuario</button>
+
+    <script>
+        // Realizar la solicitud AJAX para cargar el archivo JSON
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'usuario.json', true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var usuarios = xhr.response;
+                usuarios.forEach(function(usuario) {
+                    agregarFilaTabla(usuario);
+                });
+            }
+        };
+        xhr.send();
+
+        // Función para crear filas de la tabla
+        function agregarFilaTabla(usuario) {
+            var fila = "<tr>";
+            fila += "<td>" + usuario.nombre + "</td>";
+            fila += "<td>" + usuario.apellido + "</td>";
+            fila += "<td>" + usuario.correoElectronico + "</td>";
+            fila += "<td>" + usuario.telefono + "</td>";
+            fila += "<td>" + usuario.calle + "</td>";
+            fila += "<td>" + usuario.ciudad + "</td>";
+            fila += "<td><button class='boton-eliminar' onclick='eliminarUsuario(this)'>Eliminar</button></td>";
+            fila += "</tr>";
+            document.getElementById("tablaUsuarios").innerHTML += fila;
+        }
+
+        // Función para mostrar el formulario de agregar usuario
+        function mostrarFormulario() {
+            document.getElementById("formularioAgregarUsuario").style.display = "block";
+        }
+
+        // Función para ocultar el formulario de agregar usuario
+        function ocultarFormulario() {
+            document.getElementById("formularioAgregarUsuario").style.display = "none";
+        }
+
+        // Función para agregar un nuevo usuario a la tabla
+        function agregarUsuario() {
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var correo = document.getElementById("correo").value;
+            var telefono = document.getElementById("telefono").value;
+            var calle = document.getElementById("calle").value;
+            var ciudad = document.getElementById("ciudad").value;
+
+            var nuevoUsuario = {
+                "nombre": nombre,
+                "apellido": apellido,
+                "correoElectronico": correo,
+                "telefono": telefono,
+                "calle": calle,
+                "ciudad": ciudad
+            };
+
+            agregarFilaTabla(nuevoUsuario);
+            ocultarFormulario();
+        }
+
+        // Función para eliminar un usuario
+        function eliminarUsuario(botonEliminar) {
+            var fila = botonEliminar.parentNode.parentNode; // Obtener la fila que contiene el botón
+            fila.parentNode.removeChild(fila); // Eliminar la fila de la tabla
+        }
+    </script>
+
+</body>
+</html>
