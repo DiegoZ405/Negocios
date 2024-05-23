@@ -113,3 +113,66 @@ button#botonAgregarUsuario {
     border-radius: 3px;
     cursor: pointer;
 }
+#formularioEditarUsuario {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    width: 500px;
+}
+#formularioEditarUsuario h2 {
+    margin-top: 0;
+}
+
+#formularioEditarUsuario label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#formularioEditarUsuario input[type="text"],
+#formularioEditarUsuario input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+#formularioEditarUsuario button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#formularioEditarUsuario button:hover {
+    background-color: #0056b3;
+}
+
+#formularioEditarUsuario button:last-child {
+    background-color: #f44336;
+}
+
+#formularioEditarUsuario button:last-child:hover {
+    background-color: #d32f2f;
+}
+
+.boton-editar {
+    background-color: #0056b3;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+}

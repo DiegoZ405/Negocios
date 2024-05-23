@@ -50,6 +50,25 @@
 
     <button id="botonAgregarUsuario" onclick="mostrarFormulario()">Agregar Usuario</button>
 
+    <!-- Formulario para editar usuario -->
+    <div id="formularioEditarUsuario" style="display: none;">
+        <h2>Editar Usuario</h2>
+        <label for="editarNombre">Nombre:</label><br>
+        <input type="text" id="editarNombre" name="editarNombre"><br>
+        <label for="editarApellido">Apellido:</label><br>
+        <input type="text" id="editarApellido" name="editarApellido"><br>
+        <label for="editarCorreo">Correo Electrónico:</label><br>
+        <input type="email" id="editarCorreo" name="editarCorreo"><br>
+        <label for="editarTelefono">Teléfono:</label><br>
+        <input type="text" id="editarTelefono" name="editarTelefono"><br>
+        <label for="editarCalle">Calle:</label><br>
+        <input type="text" id="editarCalle" name="editarCalle"><br>
+        <label for="editarCiudad">Ciudad:</label><br>
+        <input type="text" id="editarCiudad" name="editarCiudad"><br><br>
+        <button onclick="guardarCambios()">Guardar Cambios</button>
+        <button onclick="cancelarEdicion()">Cancelar</button>
+    </div>
+
     <script>
         // Realizar la solicitud AJAX para cargar el archivo JSON
         var xhr = new XMLHttpRequest();
@@ -64,7 +83,7 @@
             }
         };
         xhr.send();
-
+    
         // Función para crear filas de la tabla
         function agregarFilaTabla(usuario) {
             var fila = "<tr>";
@@ -74,21 +93,24 @@
             fila += "<td>" + usuario.telefono + "</td>";
             fila += "<td>" + usuario.calle + "</td>";
             fila += "<td>" + usuario.ciudad + "</td>";
-            fila += "<td><button class='boton-eliminar' onclick='eliminarUsuario(this)'>Eliminar</button></td>";
+            fila += "<td>";
+            fila += "<button class='boton-eliminar' onclick='eliminarUsuario(this)'>Eliminar</button>";
+            fila += "<button class='boton-editar' onclick='editarUsuario(this)'>Editar</button>";
+            fila += "</td>";
             fila += "</tr>";
             document.getElementById("tablaUsuarios").innerHTML += fila;
         }
-
+    
         // Función para mostrar el formulario de agregar usuario
         function mostrarFormulario() {
             document.getElementById("formularioAgregarUsuario").style.display = "block";
         }
-
+    
         // Función para ocultar el formulario de agregar usuario
         function ocultarFormulario() {
             document.getElementById("formularioAgregarUsuario").style.display = "none";
         }
-
+    
         // Función para agregar un nuevo usuario a la tabla
         function agregarUsuario() {
             var nombre = document.getElementById("nombre").value;
@@ -97,7 +119,6 @@
             var telefono = document.getElementById("telefono").value;
             var calle = document.getElementById("calle").value;
             var ciudad = document.getElementById("ciudad").value;
-
             var nuevoUsuario = {
                 "nombre": nombre,
                 "apellido": apellido,
@@ -106,17 +127,72 @@
                 "calle": calle,
                 "ciudad": ciudad
             };
-
+    
             agregarFilaTabla(nuevoUsuario);
             ocultarFormulario();
         }
-
+    
         // Función para eliminar un usuario
         function eliminarUsuario(botonEliminar) {
             var fila = botonEliminar.parentNode.parentNode; // Obtener la fila que contiene el botón
             fila.parentNode.removeChild(fila); // Eliminar la fila de la tabla
         }
+    
+        // Función para editar un usuario
+        var editRowIndex; // Variable global para almacenar el índice de la fila editada
+
+// Resto del código...
+
+// Función para editar un usuario
+function editarUsuario(botonEditar) {
+    // Obtener la fila de la tabla que contiene los datos del usuario
+    var fila = botonEditar.parentNode.parentNode;
+
+    // Obtener los datos del usuario de la fila
+    var nombre = fila.cells[0].innerText;
+    var apellido = fila.cells[1].innerText;
+    var correo = fila.cells[2].innerText;
+    var telefono = fila.cells[3].innerText;
+    var calle = fila.cells[4].innerText;
+    var ciudad = fila.cells[5].innerText;
+
+    // Obtener el índice de la fila
+    editRowIndex = fila.rowIndex - 1; // Restar 1 para compensar el encabezado de la tabla
+
+    // Mostrar el formulario de edición con los datos del usuario
+    document.getElementById("formularioEditarUsuario").style.display = "block";
+    document.getElementById("editarNombre").value = nombre;
+    document.getElementById("editarApellido").value = apellido;
+    document.getElementById("editarCorreo").value = correo;
+    document.getElementById("editarTelefono").value = telefono;
+    document.getElementById("editarCalle").value = calle;
+    document.getElementById("editarCiudad").value = ciudad;
+}
+
+// Función para guardar los cambios realizados en la edición
+function guardarCambios() {
+    // Obtener los valores editados del formulario
+    var nombreEditado = document.getElementById("editarNombre").value;
+    var apellidoEditado = document.getElementById("editarApellido").value;
+    var correoEditado = document.getElementById("editarCorreo").value;
+    var telefonoEditado = document.getElementById("editarTelefono").value;
+    var calleEditado = document.getElementById("editarCalle").value;
+    var ciudadEditado = document.getElementById("editarCiudad").value;
+
+    // Actualizar los valores en la fila de la tabla
+    var fila = document.getElementById("tablaUsuarios").rows[editRowIndex];
+    fila.cells[0].innerText = nombreEditado;
+    fila.cells[1].innerText = apellidoEditado;
+    fila.cells[2].innerText = correoEditado;
+    fila.cells[3].innerText = telefonoEditado;
+    fila.cells[4].innerText = calleEditado;
+    fila.cells[5].innerText = ciudadEditado;
+
+    // Ocultar el formulario de edición
+    document.getElementById("formularioEditarUsuario").style.display = "none";
+}
     </script>
+    
 
 </body>
 </html>
