@@ -2,63 +2,63 @@
     {
       "nombre": "Control inalámbrico Xbox - Electric Volt - Standard Edition",
       "tipo": "Edicion",
-      "imagen": "imagenes/producto1.jpg",
+      "imagen": "Imagenes/producto1.jpg",
       "precio": "999",
       "descripcion": "Diseñado para ofrecer mayor comodidad y control con el menor esfuerzo. Mantén siempre tu objetivo con el agarre texturizado en los gatillos, en los botones superiores y en la carcasa trasera."
     },
     {
       "nombre": "Control alámbrico PowerA Advantage",
       "tipo": "Alambrico",
-      "imagen": "imagenes/producto2.jpg",
+      "imagen": "Imagenes/producto2.jpg",
       "precio": "828",
       "descripcion": "Desata tu lado salvaje y juega sin complejos con este diseño minimalista. El control con cable cuenta con motores de doble vibración y botones de juego mapeables avanzados."
     },
     {
       "nombre": "PDP Afterglow Wave Wired LED",
       "tipo": "Alambrico",
-      "imagen": "imagenes/producto3.jpg",
+      "imagen": "Imagenes/producto3.jpg",
       "precio": "1099",
       "descripcion": "compatible con Xbox One y Windows 10/11. Transmisor IR integrado: te permite controlar los accesorios compatibles de iluminación RGB Lumectra Zone desde el mando y cuenta con vibraciones"
     },
     {
       "nombre": "Microsoft Xbox Series X|S Wireless Special Edition Controller",
       "tipo": "Edicion",
-      "imagen": "imagenes/producto4.jpg",
+      "imagen": "Imagenes/producto4.jpg",
       "precio": "1508.23",
       "descripcion": "Con agarre de disparo grabado y empuñadura de goma en forma de diamante te ayudan a resistir hasta las batallas más fuertes."
     },
     {
       "nombre": "Control Inalámbrico Xbox - Elite Series 2 - Blanco",
       "tipo": "Inalambrico",
-      "imagen": "imagenes/producto5.jpg",
+      "imagen": "Imagenes/producto5.jpg",
       "precio": "2190",
       "descripcion": "Mejora tu puntería con las nuevas palancas de control de tensión ajustables, dispara aún más rápido con bloqueo de gatillos de alta sensibilidad más cortos"
     },
     {
       "nombre": "Control Inalámbrico Xbox - Gold Shadow - Edición Especial Edition",
       "tipo": "Edicion",
-      "imagen": "imagenes/producto6.jpg",
+      "imagen": "Imagenes/producto6.jpg",
       "precio": "1699",
       "descripcion": "No pierdas el objetivo y lúcete con el pad direccional híbrido en dorado metálico. Controla toda la acción con el agarre texturizado"
     },
     {
       "nombre": "Control Inalámbrico Xbox– Pulse Red",
       "tipo": "Inalambrico",
-      "imagen": "imagenes/producto7.jpg",
+      "imagen": "Imagenes/producto7.jpg",
       "precio": "789",
       "descripcion": "Vive la experiencia del diseño modernizado del Control Inalámbrico de Xbox, Pulse Red, con superficies esculpidas y una geometría refinada para una mayor comodidad"
     },
     {
       "nombre": "Control Inalámbrico Xbox - Lunar Shift",
       "tipo": "Inalambrico",
-      "imagen": "imagenes/producto8.jpg",
+      "imagen": "Imagenes/producto8.jpg",
       "precio": "2124.99",
       "descripcion": "Mantén siempre tu objetivo con el pad direccional híbrido y el agarre texturizado en los gatillos, en los botones superiores y carcasa trasera. Captura y comparte sin problemas de boton."
     },
     {
       "nombre": "Control Inalámbrico Xbox - Remix",
       "tipo": "Alambrico",
-      "imagen": "imagenes/producto9.jpg",
+      "imagen": "Imagenes/producto9.jpg",
       "precio": "1686",
       "descripcion": "Captura y comparte contenido fácilmente, como capturas de pantalla, grabaciones y mucho más con el nuevo botón para Compartir. Empareja, juega y alterna rápidamente entre varios dispositivos,"
     }
