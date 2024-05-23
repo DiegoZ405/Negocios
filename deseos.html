@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Deseos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilos/verprod.css">
+    <link rel="stylesheet" href="estilos/carro.css">
 </head>
 <body>
     <div class="container-menu">
@@ -35,40 +35,42 @@
     <script>
         // Función para cargar los productos agregados a la lista de deseos
         function loadWishlistItems() {
-            // Obtener los productos de la lista de deseos de la memoria de sesión
-            const wishlistItems = JSON.parse(sessionStorage.getItem('wishlist')) || [];
+    // Obtener los productos de la lista de deseos de la memoria de sesión
+    const wishlistItems = JSON.parse(sessionStorage.getItem('wishlist')) || [];
 
-            // Verificar si hay productos en la lista de deseos
-            if (wishlistItems.length > 0) {
-                const wishlistItemsContainer = document.getElementById('wishlist-items');
+    // Verificar si hay productos en la lista de deseos
+    if (wishlistItems.length > 0) {
+        const wishlistItemsContainer = document.getElementById('wishlist-items');
 
-                // Limpiar el contenido existente del contenedor
-                wishlistItemsContainer.innerHTML = '';
+        // Limpiar el contenido existente del contenedor
+        wishlistItemsContainer.innerHTML = '';
 
-                // Recorrer todos los productos en la lista de deseos
-                wishlistItems.forEach(item => {
-                    // Crear un elemento para mostrar el producto en la lista de deseos
-                    const productElement = document.createElement('div');
-                    productElement.classList.add('card', 'mb-3');
+        // Recorrer todos los productos en la lista de deseos
+        wishlistItems.forEach(item => {
+            // Crear un elemento para mostrar el producto en la lista de deseos
+            const productElement = document.createElement('div');
+            productElement.classList.add('wishlist-item');
 
-                    productElement.innerHTML = `
-                        <div class="card-body">
-                            <h5 class="card-title">${item.nombre}</h5>
-                            <p class="card-text"><strong>Descripción:</strong> ${item.descripcion}</p>
-                            <p class="card-text"><strong>Precio:</strong> $${item.precio}</p>
-                            <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid">
-                            <button class="btn btn-danger btn-sm mt-2" onclick="removeFromWishlist('${item.nombre}')">Eliminar</button>
-                        </div>
-                    `;
+            productElement.innerHTML = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.nombre}</h5>
+                        <p class="card-text"><strong>Descripción:</strong> ${item.descripcion}</p>
+                        <p class="card-text"><strong>Precio:</strong> $${item.precio}</p>
+                        <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid">
+                    </div>
+                </div>
+                <button class="btn btn-danger btn-sm mt-2" onclick="removeFromWishlist('${item.nombre}')">Eliminar</button>
+            `;
 
-                    // Agregar el elemento del producto al contenedor
-                    wishlistItemsContainer.appendChild(productElement);
-                });
-            } else {
-                // Si no hay productos en la lista de deseos, mostrar un mensaje
-                document.getElementById('wishlist-items').innerHTML = '<p>No hay productos en la lista de deseos</p>';
-            }
-        }
+            // Agregar el elemento del producto al contenedor
+            wishlistItemsContainer.appendChild(productElement);
+        });
+    } else {
+        // Si no hay productos en la lista de deseos, mostrar un mensaje
+        document.getElementById('wishlist-items').innerHTML = '<p>No hay productos en la lista de deseos</p>';
+    }
+}
 
         // Función para eliminar un producto de la lista de deseos
         function removeFromWishlist(productName) {

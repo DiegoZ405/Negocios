@@ -37,43 +37,49 @@
     <script>
         // Función para cargar los productos agregados al carrito
         function loadCartItems() {
-            // Obtener los productos del carrito de la memoria de sesión
-            const cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
+    // Obtener los productos del carrito de la memoria de sesión
+    const cartItems = JSON.parse(sessionStorage.getItem('cart')) || [];
 
-            // Verificar si hay productos en el carrito
-            if (cartItems.length > 0) {
-                const cartItemsContainer = document.getElementById('cart-items');
+    // Verificar si hay productos en el carrito
+    if (cartItems.length > 0) {
+        const cartItemsContainer = document.getElementById('cart-items');
 
-                // Limpiar el contenido existente del contenedor
-                cartItemsContainer.innerHTML = '';
+        // Limpiar el contenido existente del contenedor
+        cartItemsContainer.innerHTML = '';
 
-                // Recorrer todos los productos en el carrito
-                cartItems.forEach(item => {
-                    // Crear un elemento para mostrar el producto en el carrito
-                    const productElement = document.createElement('div');
-                    productElement.classList.add('card', 'mb-3');
+        // Recorrer todos los productos en el carrito
+        cartItems.forEach(item => {
+            // Crear un elemento para mostrar el producto en el carrito
+            const productElement = document.createElement('div');
+            productElement.classList.add('product-item');
 
-                    productElement.innerHTML = `
-                        <div class="card-body">
-                            <h5 class="card-title">${item.nombre}</h5>
-                            <p class="card-text"><strong>Descripción:</strong> ${item.descripcion}</p>
-                            <p class="card-text"><strong>Precio:</strong> $${item.precio}</p>
-                            <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid">
-                            <button class="btn btn-danger btn-sm mt-2" onclick="removeFromCart('${item.nombre}')">Eliminar</button>
-                        </div>
-                    `;
+            productElement.innerHTML = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.nombre}</h5>
+                        <p class="card-text"><strong>Descripción:</strong> ${item.descripcion}</p>
+                        <p class="card-text"><strong>Precio:</strong> $${item.precio}</p>
+                        <img src="${item.imagen}" alt="${item.nombre}" class="img-fluid">
+                    </div>
+                </div>
+                <button class="btn btn-danger btn-sm mt-2" onclick="removeFromCart('${item.nombre}')">Eliminar</button>
+            `;
 
-                    // Agregar el elemento del producto al contenedor
-                    cartItemsContainer.appendChild(productElement);
-                });
+            // Agregar el elemento del producto al contenedor
+            cartItemsContainer.appendChild(productElement);
+        });
 
-                // Calcular el precio total y mostrar el botón de PayPal
-                calcularPrecioTotal();
-            } else {
-                // Si no hay productos en el carrito, mostrar un mensaje
-                document.getElementById('cart-items').innerHTML = '<p>No hay productos en el carrito</p>';
-            }
-        }
+        // Limpiar el contenedor del botón de PayPal para evitar que aparezca varias veces
+        const paypalButtonContainer = document.getElementById('paypal-button-container');
+        paypalButtonContainer.innerHTML = '';
+
+        // Calcular el precio total y mostrar el botón de PayPal
+        calcularPrecioTotal();
+    } else {
+        // Si no hay productos en el carrito, mostrar un mensaje
+        document.getElementById('cart-items').innerHTML = '<p>No hay productos en el carrito</p>';
+    }
+}
 
         // Función para calcular el precio total
         function calcularPrecioTotal() {

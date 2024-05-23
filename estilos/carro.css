@@ -51,52 +51,16 @@ body{
 .cerrar-menu {
     display: none;
 }
-@media screen and (max-width: 457px) {
-    .abrir-menu,
-    .cerrar-menu {
-        display: block;
-        border: 0;
-        font-size: 1.25rem;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    .abrir-menu {
-        color: #1c1c1c;
-    }
-
-    .cerrar-menu {
-        color: #ececec;
-    }
-
-    .nav {
-        opacity: 0;
-        visibility: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        gap: 1rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #1c1c1c;
-        padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
-        height: 310px;
-    }
-
-    .nav.visible {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        align-items: end;
-    }
-
-    .nav-list li a {
-        color: #ecececec;
-    }
+.btn-danger {
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Relleno interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar a un cursor de puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
+    margin-bottom: 20px;
+    height: 40px;
 }
+
+
