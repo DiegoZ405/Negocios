@@ -57,10 +57,16 @@
     },
     {
       "nombre": "Control Inalámbrico Xbox - Remix",
-      "tipo": "Alambrico",
+      "tipo": "Inalambrico",
       "imagen": "Imagenes/producto9.jpg",
       "precio": "1686",
       "descripcion": "Captura y comparte contenido fácilmente, como capturas de pantalla, grabaciones y mucho más con el nuevo botón para Compartir. Empareja, juega y alterna rápidamente entre varios dispositivos,"
+    },
+    {
+      "nombre": "Control Inalámbrico Xbox Deep Pink",
+      "tipo": "Inalambrico",
+      "imagen": "Imagenes/producto10.jpg",
+      "precio": "1894",
+      "descripcion": "Experimenta el diseño moderno del control inalámbrico Xbox Deep Pink, con superficies esculpidas y geometría refinada para disfrutar de una mayor comodidad durante el juego"
     }
-
 ]
