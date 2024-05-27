@@ -2,7 +2,7 @@
     {
         "no orden": "#739",
         "nombre": "Control inalámbrico Xbox - Electric Volt - Standard Edition",
-        "imagen": "imagenes/producto1.jpg",
+        "imagen": "Imagenes/producto1.jpg",
         "fechaOrden": "2024-05-22",
         "pago": "efectivo",
         "precio": "999"
@@ -10,7 +10,7 @@
     {
         "no orden": "#390",
         "nombre": "Control Inalámbrico Xbox - Gold Shadow - Edición Especial Edition",
-        "imagen": "imagenes/producto6.jpg",
+        "imagen": "Imagenes/producto6.jpg",
         "fechaOrden": "2024-05-27",
         "pago": "tarjeta credito",
         "precio": "1699"
