@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="/estilos/catalogo.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de Productos</h1>
+    </header>
+    <main>
+        <section id="form-section">
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="nuevo-producto-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo" required>
+                
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" required>
+                
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" required></textarea>
+                
+                <button type="submit">Agregar Producto</button>
+            </form>
+        </section>
+        <section id="productos-section">
+            <table id="productos-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Imagen</th>
+                        <th>Precio</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se insertarán los productos dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productosUrl = 'producto.json';
+
+            fetch(productosUrl)
+                .then(response => response.json())
+                .then(productos => {
+                    productos.forEach(producto => agregarProductoATabla(producto));
+                })
+                .catch(error => console.error('Error cargando el archivo JSON:', error));
+
+            document.getElementById('nuevo-producto-form').addEventListener('submit', event => {
+                event.preventDefault();
+
+                const nuevoProducto = {
+                    nombre: event.target.nombre.value,
+                    tipo: event.target.tipo.value,
+                    imagen: '',
+                    precio: event.target.precio.value,
+                    descripcion: event.target.descripcion.value,
+                };
+
+                const fileInput = event.target.imagen;
+                const file = fileInput.files[0];
+
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        nuevoProducto.imagen = e.target.result;
+                        agregarProductoATabla(nuevoProducto);
+                    };
+                    reader.readAsDataURL(file);
+                }
+
+                event.target.reset();
+            });
+        });
+
+        function agregarProductoATabla(producto) {
+            const tableBody = document.querySelector('#productos-table tbody');
+            const row = document.createElement('tr');
+
+            const nombreCell = document.createElement('td');
+            nombreCell.textContent = producto.nombre;
+            row.appendChild(nombreCell);
+
+            const tipoCell = document.createElement('td');
+            tipoCell.textContent = producto.tipo;
+            row.appendChild(tipoCell);
+
+            const imagenCell = document.createElement('td');
+            const imgElement = document.createElement('img');
+            imgElement.src = producto.imagen;
+            imagenCell.appendChild(imgElement);
+            row.appendChild(imagenCell);
+
+            const precioCell = document.createElement('td');
+            precioCell.textContent = producto.precio;
+            row.appendChild(precioCell);
+
+            const descripcionCell = document.createElement('td');
+            descripcionCell.textContent = producto.descripcion;
+            row.appendChild(descripcionCell);
+
+            const accionesCell = document.createElement('td');
+            const editarButton = document.createElement('button');
+            editarButton.textContent = 'Editar';
+            editarButton.addEventListener('click', () => {
+                editarProducto(row, producto);
+            });
+
+            const eliminarButton = document.createElement('button');
+            eliminarButton.textContent = 'Eliminar';
+            eliminarButton.addEventListener('click', () => {
+                eliminarProducto(row);
+            });
+
+            accionesCell.appendChild(editarButton);
+            accionesCell.appendChild(eliminarButton);
+            row.appendChild(accionesCell);
+
+            // Insertar la nueva fila al inicio de la tabla
+            tableBody.insertBefore(row, tableBody.firstChild);
+        }
+
+        function editarProducto(row, producto) {
+            const nombreCell = row.children[0];
+            const tipoCell = row.children[1];
+            const imagenCell = row.children[2];
+            const precioCell = row.children[3];
+            const descripcionCell = row.children[4];
+
+            nombreCell.innerHTML = `<input type="text" value="${producto.nombre}">`;
+            tipoCell.innerHTML = `<input type="text" value="${producto.tipo}">`;
+            imagenCell.innerHTML = `<input type="text" value="${producto.imagen}">`;
+            precioCell.innerHTML = `<input type="text" value="${producto.precio}">`;
+            descripcionCell.innerHTML = `<input type="text" value="${producto.descripcion}">`;
+
+            const saveButton = document.createElement('button');
+            saveButton.textContent = 'Guardar';
+            saveButton.addEventListener('click', () => {
+                guardarProducto(row, producto);
+            });
+
+            const accionesCell = row.children[5];
+            accionesCell.innerHTML = '';
+            accionesCell.appendChild(saveButton);
+        }
+
+        function guardarProducto(row, producto) {
+            const nombreCell = row.children[0];
+            const tipoCell = row.children[1];
+            const imagenCell = row.children[2];
+            const precioCell = row.children[3];
+            const descripcionCell = row.children[4];
+
+            producto.nombre = nombreCell.querySelector('input').value;
+            producto.tipo = tipoCell.querySelector('input').value;
+            producto.imagen = imagenCell.querySelector('input').value;
+            producto.precio = precioCell.querySelector('input').value;
+            producto.descripcion = descripcionCell.querySelector('input').value;
+
+            nombreCell.textContent = producto.nombre;
+            tipoCell.textContent = producto.tipo;
+            imagenCell.innerHTML = `<img src="${producto.imagen}" alt="${producto.nombre}">`;
+            precioCell.textContent = producto.precio;
+            descripcionCell.textContent = producto.descripcion;
+
+            const editarButton = document.createElement('button');
+            editarButton.textContent = 'Editar';
+            editarButton.addEventListener('click', () => {
+                editarProducto(row, producto);
+            });
+
+            const eliminarButton = document.createElement('button');
+            eliminarButton.textContent = 'Eliminar';
+            eliminarButton.addEventListener('click', () => {
+                eliminarProducto(row);
+            });
+
+            const accionesCell = row.children[5];
+            accionesCell.innerHTML = '';
+            accionesCell.appendChild(editarButton);
+            accionesCell.appendChild(eliminarButton);
+        }
+
+        function eliminarProducto(row) {
+            row.remove();
+        }
+    </script>
+</body>
+</html>
