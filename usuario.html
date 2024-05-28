@@ -42,7 +42,7 @@
     </table>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar el archivo JSON y procesarlo
     fetch('usuario.json')
         .then(response => response.json())
@@ -100,6 +100,7 @@
             // Crear botón "Guardar" para guardar los cambios realizados
             const guardarButton = document.createElement('button');
             guardarButton.textContent = "Guardar";
+            guardarButton.classList.add('guardar-button'); // Añadir la clase CSS al botón "Guardar"
             guardarButton.style.display = 'none';
             guardarButton.addEventListener('click', function() {
                 // Al hacer clic en el botón "Guardar", guardar los datos editados y mostrarlos en la tabla

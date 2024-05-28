@@ -62,7 +62,7 @@ h1{
 }
 
 .editar-button {
-    background-color: #4CAF50; /* Color de fondo */
+    background-color: #2196f3; /* Color azul */
     color: white; /* Color del texto */
     padding: 8px 16px; /* Espaciado interno */
     border: none; /* Sin borde */
@@ -73,5 +73,21 @@ h1{
 
 /* Estilos para el botón "Editar" cuando se pasa el cursor por encima */
 .editar-button:hover {
-    background-color: #45a049; /* Cambio de color de fondo */
+    background-color: #0d47a1; /* Color azul más oscuro al pasar el ratón */
 }
+.guardar-button {
+    background-color: #2196f3; /* Color azul */
+    color: white; /* Color del texto */
+    padding: 8px 16px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor al pasar */
+    margin-right: 5px; /* Margen derecho */
+}
+
+/* Estilos para el botón "Guardar" cuando se pasa el cursor por encima */
+.guardar-button:hover {
+    background-color: #0d47a1; /* Color azul más oscuro al pasar el ratón */
+
+}
+    
